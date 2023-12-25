@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>Home page</title>
+    <style>
+        .body {
+          background-image: url("{% static 'bg.png' %}");
+          height: 100vh;
+          width: 100%;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: bottom;
+        }
+        .qr_body {
+          background-image: url("https://static.vecteezy.com/system/resources/previews/014/053/629/non_2x/night-winter-park-with-street-light-flat-color-illustration-xmas-holiday-celebration-wonderland-scene-fully-editable-2d-simple-cartoon-cityscape-with-christmas-scenery-on-background-vector.jpg");
+          width: 100%;
+          height: 100vh;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: bottom;
+        }
+        .image-wrapper {
+          position: relative;
+        }
+        .qr_image {
+          display: block;
+        }
+        .hat {
+          position: absolute;
+          top: -65%;
+          width: 100%;
+          transform: rotate(15deg);
+          right: 10%;
+        }
+    </style>
+  </head>
+  <body>
+    {% if not qr_image %}
+    <div class="body d-flex justify-content-center align-items-center">
+        <div style="height: fit-content; background-color: #497577;" class="w-50 card p-3">
+          <h1 class="text-center mb-4 text-white">Сделайте поздравление</h1>
+          <form method="post" class="d-flex gap-3 flex-column">
+            {% csrf_token %}
+            <input required style="color: #497577;" type="text" name="name" maxlength="50" class="form-control fs-5" placeholder="Ваше имя">
+            <input required style="color: #497577;" type="text" name="receiver" maxlength="50" class="form-control fs-5" placeholder="Имя получателя">
+            <textarea required style="color: #497577;" name="text" cols="30" rows="10" class="form-control fs-5" placeholder="Ваш текст"></textarea>
+            <button class="btn btn-success fs-5">Сделать поздравление</button>
+          </form>
+        </div>
+    </div>
+    {% else %}
+    <div class="qr_body d-flex justify-content-center">
+      <div class="d-flex flex-column w-100 justify-content-end h-100 align-items-center gap-5 mb-5">
+        <div class="image-wrapper w-25">
+          <img src="{{ qr_image }}" alt="" class="w-100 rounded qr_image">
+          <img src="{% static 'hat.png' %}" class="hat" alt="">
+        </div>
+        <a onclick="sendAjax(this)" class="btn btn-success fs-1 mb-5" download href="{{ qr_image }}">Скачать</a>
+      </div>
+    </div>
+    {% endif %}
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+      function sendAjax(btn) {
+        $.ajax({
+          url: '{% url "delete" %}',
+          type: 'get',
+          data: {
+            qr_id: btn.href
+          },
+          success: function(data) {
+            window.location.href = '/'
+          }
+        })
+      }
+      
+    </script>
+  </body>
+</html>

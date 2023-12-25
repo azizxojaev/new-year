@@ -1,0 +1,678 @@
+:root{
+  --primary: #fff;
+  --bg-color: rgb(5, 53, 61);
+  --bg-envelope-color: #f5edd1;
+  --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --txt-color: #444;
+  --heart-color: rgb(252, 8, 231);
+}
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.wrapper > .envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
+  position: absolute;
+  left: 160px;
+  top: 250px;
+}
+.envelope-wrapper > .envelope {
+  position: relative;
+  width: 300px;
+  height: 230px;
+}
+.envelope-wrapper > .envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  border-top: 130px solid var(--envelope-tab);
+  border-right: 150px solid transparent;
+  border-left: 150px solid transparent;
+  transform-origin: top;
+  transition: all 0.5s ease-in-out 0.7s;
+}
+.envelope-wrapper > .envelope::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 0px;
+  height: 0px;
+  border-top: 130px solid transparent;
+  border-right: 150px solid var(--envelope-cover);
+  border-bottom: 100px solid var(--envelope-cover);
+  border-left: 150px solid var(--envelope-cover);
+}
+.envelope > .letter {
+  position: absolute;
+  right: 20%;
+  bottom: 0;
+  width: 54%;
+  height: 80%;
+  background: var(--primary);
+  text-align: center;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 0 5px var(--shadow-color);
+  padding: 20px 10px;
+}
+
+.envelope > .letter > .text {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: var(--txt-color);
+  text-align: left;
+  font-size: 10px;
+}
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 4;
+  transform: translate(-50%, -20%) rotate(45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
+}
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
+}
+.heart:before {
+  top: -7.5px;
+}
+.heart:after {
+  right: 7.5px;
+}
+.flap > .envelope:before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+.flap > .envelope > .letter {
+  bottom: 100px;
+  transform: scale(1.5);
+  transition-delay: 1s;
+}
+.flap > .heart {
+  transform: rotate(90deg);
+  transition-delay: 0.4s;
+}
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Mountains+of+Christmas:700');
+body, html {
+  height: 100%;
+}
+body {
+  background: #e9e0ca;
+}
+.holidays-title {
+  font-family: 'Mountains of Christmas', cursive;
+  font-size: 3em;
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.14);
+  position: relative;
+  opacity: 0;
+  animation: balloon 6s ease-in-out infinite;
+}
+.holidays-title::before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 0 solid transparent;
+  border-top: 40px solid #fff;
+  bottom: -31px;
+  right: 33px;
+  transform: rotateZ(-20deg);
+}
+.wrapper {
+  margin: 0;
+  display: flex;
+  height: inherit;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tree-stalk, .tree-jar, .room-window::before, .room-window::after, .sc-head .nose, .sc-head .beard::before, .sc-head .ears, .sc-hat {
+  display: table;
+  margin: 0 auto;
+}
+.tie-wrap::before, .tie-wrap::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 17px solid transparent;
+  border-right: 0 solid transparent;
+  border-bottom: 40px solid yellow;
+  left: 21px;
+  top: 5px;
+}
+.ground {
+  background: rgba(0, 0, 0, 0.12);
+  width: calc(100vw - 20%);
+  height: 70px;
+  border-radius: 50%;
+  display: table;
+}
+.scene {
+  max-width: calc(100vw - 30%);
+  min-width: 640px;
+  position: relative;
+}
+.xmas-tree {
+  position: relative;
+  top: 10px;
+  left: 770px;
+  float: left;
+}
+.tree-star {
+  position: absolute;
+  top: 0;
+  left: 40%;
+  z-index: 4;
+}
+.tree-star::before {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 25px solid #fcd000;
+  box-shadow: 1px 19px 20px -7px #1d5022;
+}
+.tree-star::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 25px solid #fcd000;
+}
+.tree-part {
+  width: 0;
+  height: 0;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-bottom: 100px solid #49bd55;
+  position: relative;
+  z-index: 3;
+}
+.tree-part::before {
+  content: '';
+  position: absolute;
+  width: 160px;
+  background-repeat: repeat;
+  height: 15px;
+  background-size: 20px 20px;
+  background-image: radial-gradient(circle at 10px 15px, #3fae4a 12px, transparent 13px);
+  top: 99px;
+  left: -80px;
+  transform: rotateX(180deg);
+}
+.tree-part:nth-child(2) {
+  border-bottom-color: #31883a;
+  transform: scale(1.4);
+  top: -45px;
+  z-index: 2;
+}
+.tree-part:nth-child(2)::before {
+  background-image: radial-gradient(circle at 10px 15px, #389b42 12px, transparent 13px);
+}
+.tree-part:nth-child(3) {
+  border-bottom-color: #2b7532;
+  transform: scale(1.8);
+  top: -80px;
+  z-index: 1;
+}
+.tree-part:nth-child(3)::before {
+  background-image: radial-gradient(circle at 10px 15px, #31883a 12px, transparent 13px);
+}
+.tree-stalk {
+  width: 25px;
+  height: 75px;
+  background: #7b652d;
+  box-shadow: inset 0 22px 6px -1px #302812;
+  position: relative;
+  top: -40px;
+}
+.tree-jar {
+  width: 80px;
+  position: relative;
+  top: -40px;
+  left: 2px;
+}
+.tree-jar::before {
+  content: '';
+  width: 96px;
+  height: 20px;
+  float: left;
+  background: #584444;
+  box-shadow: 0 3px 2px -1px #4a3939;
+  position: relative;
+  border-radius: 2px;
+  left: -3px;
+}
+.tree-jar::after {
+  content: '';
+  border-top: 50px solid #755a5a;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  height: 0;
+  width: 50px;
+  float: left;
+}
+.tree-lights {
+  width: 120px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 3px 0 -1px #000;
+}
+.tree-lights.left {
+  transform: rotateZ(-20deg);
+  position: relative;
+  left: -73px;
+  top: 41px;
+}
+.tree-lights.right {
+  transform: rotateY(180deg) rotateZ(-20deg);
+  position: relative;
+  left: -43px;
+  top: 31px;
+}
+.light-bulb {
+  width: 8px;
+  height: 3px;
+  background: black;
+  margin: 20px;
+  border-radius: 20% 50%;
+  position: absolute;
+  animation: 1s cubic-bezier(0.39, 0.58, 0.57, 1) infinite;
+}
+.light-bulb.red {
+  background: #de3939;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.14), 0 2px 6px 2px #de3939;
+  transform: rotateZ(-73deg);
+  top: 2px;
+  left: -9px;
+  animation-name: blink;
+}
+.light-bulb.yew {
+  background: #69e622;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.14), 0 2px 6px 2px #69e622;
+  transform: rotateZ(-86deg);
+  top: 6px;
+  left: 20px;
+  animation-name: blink2;
+}
+.light-bulb.purple {
+  background: #9c6aff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.14), 0 2px 6px 2px #9c6aff;
+  transform: rotateZ(-96deg);
+  top: 6px;
+  left: 50px;
+  animation-name: blink3;
+}
+.light-bulb.blue {
+  background: #0ebeff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.14), 0 2px 6px 2px #0ebeff;
+  transform: rotateZ(-106deg);
+  top: 3px;
+  left: 75px;
+  animation-name: blink4;
+}
+.room-window {
+  width: 340px;
+  height: 300px;
+  border: 10px solid #ccaa53;
+  box-shadow: 4px 5px 2px 0px rgba(182, 146, 54, 0.3);
+  float: right;
+  overflow: hidden;
+  position: relative;
+}
+.room-window::before {
+  content: '';
+  background: #ccaa53;
+  box-shadow: 1px 0 1px 1px #a28230;
+  width: 10px;
+  height: inherit;
+  position: absolute;
+  left: 48%;
+  z-index: 1;
+}
+.room-window::after {
+  content: '';
+  background: #ccaa53;
+  width: inherit;
+  height: 10px;
+  position: absolute;
+  top: 48%;
+  z-index: 1;
+}
+.room-window .xmas-sky {
+  background: linear-gradient(0deg, #153d54, #061117);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.snow-ground {
+  width: 455px;
+  height: 105px;
+  background: linear-gradient(0deg, #fff, #ccf0fd);
+  border-radius: 40%;
+  position: absolute;
+  bottom: -44px;
+  left: -24px;
+  transform: rotateZ(-6deg);
+}
+.xmas-gifts {
+  position: absolute;
+  bottom: 30px;
+  left: 792px;
+}
+.xmas-gift {
+  border-radius: 4px;
+}
+.xmas-gift::before {
+  content: '';
+  width: 100%;
+  height: 10px;
+  background: yellow;
+  box-shadow: -30px 0 0 0 #d6d600;
+  display: block;
+  position: relative;
+  top: 35px;
+}
+.xmas-gift::after {
+  content: '';
+  width: 10px;
+  height: inherit;
+  background: yellow;
+  display: block;
+  position: relative;
+  top: -10px;
+  margin: auto;
+}
+.xmas-gift.square {
+  width: 80px;
+  height: 80px;
+  background: #ff54cf;
+  box-shadow: -30px 0 0 0 #ed00aa;
+  position: relative;
+  z-index: 1;
+}
+.xmas-gift.rectangular {
+  width: 60px;
+  height: 120px;
+  background: #0ebeff;
+  box-shadow: -30px 0 0 0 #008dc1;
+  position: absolute;
+  top: -40px;
+  left: 100px;
+}
+.tie-wrap {
+  position: absolute;
+  top: -20px;
+  left: -6px;
+  min-width: 82px;
+}
+.tie-wrap .tie, .tie-wrap .tie::before {
+  width: 40px;
+  height: 20px;
+  background: yellow;
+  border-radius: 50% 50% 20% 20%;
+  float: left;
+  z-index: 1;
+  position: relative;
+}
+.tie-wrap .tie::before {
+  content: '';
+  background: #cc0;
+  transform: scale(0.5) translateX(15px) translateY(8px);
+}
+.tie-wrap .tie.reflected, .tie-wrap .tie::before.reflected {
+  transform: rotateY(180deg);
+}
+.tie-wrap .tie.reflected::before, .tie-wrap .tie::before.reflected {
+  transform: scale(0.5) translateX(2px) translateY(8px);
+}
+.tie-wrap::after {
+  transform: rotateY(180deg);
+  left: 54px;
+}
+.rectangular .tie-wrap {
+  left: -16px;
+}
+.santa-claus {
+  margin: 40px;
+  animation: santa-claus 6s ease-in infinite;
+}
+.sc-head {
+  width: 80px;
+  height: 80px;
+  border-radius: 40%;
+  background: #f7caaf;
+  position: relative;
+  z-index: 2;
+}
+.sc-head .eyes {
+  position: absolute;
+  left: 2px;
+  top: 20px;
+  display: table;
+  margin: 0 auto;
+}
+.sc-head .eyes::before, .sc-head .eyes::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #000;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 15px;
+}
+.sc-head .nose {
+  width: 20px;
+  height: 13px;
+  border-radius: 50%;
+  background: #d48c7e;
+  top: 32px;
+  position: relative;
+}
+.sc-head .beard {
+  position: absolute;
+  bottom: -45px;
+  left: -10px;
+  background: #fff;
+  width: calc(100% + 20px);
+  height: 80px;
+  border-radius: 20% 20% 60% 60%;
+}
+.sc-head .beard::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 0 0 50% 50%;
+  margin-top: 6px;
+}
+.sc-head .ears {
+  width: calc(100% + 17px);
+  position: absolute;
+  top: 25px;
+  left: -8px;
+}
+.sc-head .ears .ear {
+  width: 10px;
+  height: 20px;
+  background: #d48c7e;
+  border-radius: 50% 0 0 50%;
+}
+.sc-head .ears .ear.left {
+  float: left;
+}
+.sc-head .ears .ear.right {
+  float: right;
+  transform: rotateZ(180deg);
+}
+.sc-hat {
+  position: absolute;
+  top: -37px;
+  left: -6px;
+  width: calc(100% + 10px);
+  height: 55px;
+  background: #de3939;
+  border-radius: 60px 80px 0 0;
+}
+.sc-hat::before {
+  content: '';
+  width: inherit;
+  height: 20px;
+  background: #fff;
+  display: block;
+  border-radius: 6px;
+  position: absolute;
+  bottom: -5px;
+  left: -4px;
+}
+.sc-hat .hat-tip {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 69px solid #de3939;
+  position: absolute;
+  top: -37px;
+  animation: swing 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  left: 8px;
+}
+.sc-hat .hat-tip::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  left: -13px;
+  top: -10px;
+}
+.sc-body {
+  position: absolute;
+  left: -70px;
+  width: 200px;
+  height: 200px;
+  background: #de3939;
+  border-radius: 30%;
+}
+.snow, .snow:before, .snow:after {
+  position: absolute;
+  top: -600px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: , radial-gradient(3px 3px at 58px 389px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 179px 333px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 85px 130px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 481px 389px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 431px 427px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 514px 419px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 521px 372px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 326px 155px, white 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 151px 206px, rgba(255, 255, 255, 0.6) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 451px 44px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 457px 51px, white 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 442px 108px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 417px 19px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 384px 18px, white 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 366px 248px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 547px 235px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 230px 423px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 436px 251px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 70px 38px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 469px 182px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 88px 151px, rgba(255, 255, 255, 0.6) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 543px 36px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 269px 300px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 269px 95px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 299px 13px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 205px 570px, rgba(255, 255, 255, 0.6) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 356px 88px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 574px 189px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 493px 430px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 495px 223px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 385px 16px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 106px 176px, white 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 470px 371px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 104px 268px, white 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 583px 396px, rgba(255, 255, 255, 0.6) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 526px 394px, rgba(255, 255, 255, 0.6) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 451px 9px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 226px 20px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 360px 272px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 440px 155px, white 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 578px 584px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 388px 296px, white 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 81px 186px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 347px 519px, white 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 117px 343px, white 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 384px 200px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 545px 429px, rgba(255, 255, 255, 0.6) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 154px 419px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 262px 358px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 372px 366px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 135px 367px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 128px 11px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 292px 382px, rgba(255, 255, 255, 0.6) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 547px 427px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 428px 366px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 227px 328px, white 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 124px 163px, rgba(255, 255, 255, 0.6) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 393px 385px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 238px 506px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 223px 521px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 382px 390px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 91px 521px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 437px 541px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 225px 472px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 184px 30px, white 70%, rgba(0, 0, 0, 0)), radial-gradient(5px 5px at 123px 214px, rgba(255, 255, 255, 0.7) 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 183px 596px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 548px 29px, white 70%, rgba(0, 0, 0, 0)), radial-gradient(3px 3px at 136px 366px, rgba(255, 255, 255, 0.9) 70%, rgba(0, 0, 0, 0)), radial-gradient(4px 4px at 354px 16px, rgba(255, 255, 255, 0.8) 70%, rgba(0, 0, 0, 0));
+  background-size: 600px 600px;
+  animation: snow 4s linear infinite;
+  content: "";
+}
+.snow:after {
+  margin-left: -200px;
+  opacity: 0.4;
+  animation-duration: 8s;
+  animation-direction: reverse;
+  filter: blur(3px);
+}
+.snow:before {
+  animation-duration: 12s;
+  animation-direction: reverse;
+  margin-left: -300px;
+  opacity: 0.65;
+  filter: blur(1.5px);
+}
+@keyframes snow {
+  to {
+    transform: translateY(600px);
+  }
+}
+@keyframes blink {
+  20% {
+    background: #eb8888;
+  }
+}
+@keyframes blink2 {
+  60% {
+    background: white;
+  }
+}
+@keyframes blink3 {
+  75% {
+    background: #d9c6ff;
+  }
+}
+@keyframes blink4 {
+  100% {
+    background: #a7e7ff;
+  }
+}
+@keyframes santa-claus {
+  0%, 60%, 80%, 100% {
+    transform: rotateZ(195deg) translateY(0);
+  }
+  30% {
+    transform: rotateZ(195deg) translateY(300px);
+  }
+}
+@keyframes swing {
+  0%, 100% {
+    transform: rotateZ(-42deg);
+  }
+  50% {
+    transform: rotateZ(0deg);
+  }
+}
+@keyframes balloon {
+  0%, 50%, 100% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  80%, 90% {
+    opacity: 1;
+    transform: translateY(-15px);
+  }
+}
